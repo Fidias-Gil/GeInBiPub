@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GeInBiPub</string>
+    <string name="fragment_detalle_bien_sin_datos">Selecciona un Bien Público</string>
+    <string name="fragment_lista_bienes_sin_datos">Agrega información</string>
+</resources>

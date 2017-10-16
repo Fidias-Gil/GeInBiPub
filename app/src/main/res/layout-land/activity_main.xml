@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fidias.geinbipub.MainActivity">
+
+
+    <fragment
+        android:id="@+id/fListaBienes"
+        android:name="com.example.fidias.geinbipub.ListaBienesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_lista_bienes" />
+
+    <fragment
+        android:id="@+id/fDetalleBien"
+        android:name="com.example.fidias.geinbipub.DetalleBienFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_detalle_bien" />
+</LinearLayout>
