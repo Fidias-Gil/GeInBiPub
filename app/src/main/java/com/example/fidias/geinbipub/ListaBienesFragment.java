@@ -10,6 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.sql.Array;
+import java.util.ArrayList;
 
 
 /**
@@ -18,6 +24,8 @@ import android.view.ViewGroup;
 public class ListaBienesFragment extends Fragment {
 
     FloatingActionButton fbAgregar;
+    ListView lvBienes;
+    ArrayList<Bien> al;
 
 
     public ListaBienesFragment() {
@@ -36,16 +44,38 @@ public class ListaBienesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         Log.d("GEINBIPUB","ListaBienesFragment.onActivityCreated()");
-        Bien.listar(getActivity());
+
         fbAgregar = (FloatingActionButton)getActivity().findViewById(R.id.fbAgregar);
+        lvBienes = (ListView)getActivity().findViewById(R.id.lvBienes);
+
+
+        lvBienes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
         fbAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(),DetalleActivity.class);
+                Log.d("GEINBIPUB","fbAgregar.onClick()");
+                Intent i = new Intent(getContext(),AgregarActivity.class);
                 startActivity(i);
             }
         });
+
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        al = Bien.listar(getActivity());
+        ArrayAdapter<Bien> adapter = new ArrayAdapter<Bien>(getContext(),
+                android.R.layout.simple_list_item_1,
+                al);
+        lvBienes.setAdapter(adapter);
+    }
 }
