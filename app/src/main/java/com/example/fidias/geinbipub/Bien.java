@@ -21,6 +21,8 @@ import static com.example.fidias.geinbipub.Bien.FldBienes.TITULO;
 
 public class Bien {
 
+    public static final float COORD_NO_VALIDA = 91;
+
     protected enum FldBienes {
         ID ("_id", "INTEGER PRIMARY KEY AUTOINCREMENT"),
         LATITUD ("latitud", "NUMERIC"),
@@ -85,6 +87,23 @@ public class Bien {
         return db.listar();
     }
 
+    @Override
+    public String toString() {
+        if(latitud == COORD_NO_VALIDA || longitud == COORD_NO_VALIDA) {
+            return "Bien{" +
+                    ", titulo='" + titulo + '\'' +
+                    ", detalle='" + detalle + '\'' +
+                    ", id=" + id +
+                    '}';
+        }
+        return "Bien{" +
+                "latitud=" + latitud +
+                ", longitud=" + longitud +
+                ", titulo='" + titulo + '\'' +
+                ", detalle='" + detalle + '\'' +
+                ", id=" + id +
+                '}';
+    }
 
     private static class DBBienH extends SQLiteOpenHelper {
         private static final int DB_VERSION = 12;

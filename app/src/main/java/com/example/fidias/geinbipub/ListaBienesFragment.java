@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -62,7 +64,16 @@ public class ListaBienesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d("GEINBIPUB","fbAgregar.onClick()");
-                Intent i = new Intent(getContext(),AgregarActivity.class);
+                Intent i = new Intent(getActivity(),AgregarActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //TODO: BORRAR
+        getActivity().findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),DetalleActivity.class);
                 startActivity(i);
             }
         });
@@ -73,9 +84,16 @@ public class ListaBienesFragment extends Fragment {
     public void onResume() {
         super.onResume();
         al = Bien.listar(getActivity());
+        if(al.size()>0) {
+            getActivity().findViewById(R.id.tvMensajeInicialListaBienes).setVisibility(View.INVISIBLE);
+        } else {
+            getActivity().findViewById(R.id.tvMensajeInicialListaBienes).setVisibility(View.VISIBLE);
+        }
         ArrayAdapter<Bien> adapter = new ArrayAdapter<Bien>(getContext(),
                 android.R.layout.simple_list_item_1,
                 al);
         lvBienes.setAdapter(adapter);
     }
+
+
 }

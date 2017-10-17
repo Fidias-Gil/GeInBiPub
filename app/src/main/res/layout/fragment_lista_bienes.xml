@@ -7,7 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvMensajeInicialListaBienes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/fragment_lista_bienes_sin_datos" />
@@ -25,5 +25,12 @@
         android:clickable="true"
         app:fabSize="mini"
         app:srcCompat="@drawable/ic_add_white_24dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="prueba"
+        android:text="Button" />
 
 </FrameLayout>

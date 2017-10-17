@@ -10,4 +10,5 @@
     <string name="detalle">Introduzca la descripción de la incidencia</string>
     <string name="latitud_label">Latitud: </string>
     <string name="longitud_label">Longitud: </string>
+    <string name="mensaje_no_permiso_GPS">Si no activa los permisos de geolocalización no podrá registrar la ubicación de las incidencias</string>
 </resources>
