@@ -108,19 +108,15 @@ public class Bien {
     @Override
     public String toString() {
         if(latitud == COORD_NO_VALIDA || longitud == COORD_NO_VALIDA) {
-            return "Bien{" +
-                    ", titulo='" + titulo + '\'' +
-                    ", detalle='" + detalle + '\'' +
-                    ", id=" + id +
-                    '}';
+            return "Titulo = '" + titulo + "\'\n" +
+                    "Detalle = '" + detalle + "\'\n" +
+                    "id = " + id;
         }
-        return "Bien{" +
-                "latitud=" + latitud +
-                ", longitud=" + longitud +
-                ", titulo='" + titulo + '\'' +
-                ", detalle='" + detalle + '\'' +
-                ", id=" + id +
-                '}';
+        return "Titulo = '" + titulo + "\'\n" +
+                "Detalle = '" + detalle + "\'\n" +
+                "Latitud = " + latitud + "\n" +
+                "Longitud = " + longitud + "\n" +
+                "id = " + id;
     }
 
     private static class DBBienH extends SQLiteOpenHelper {

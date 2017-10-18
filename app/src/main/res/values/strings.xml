@@ -18,4 +18,7 @@
     <string name="borrar_incidencia">Borrar Incidencia</string>
     <string name="operacion_cancelada">Operacion cancelada</string>
     <string name="operacion_realizada">Operación realizada</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="google_maps_key">AIzaSyBgdWZNGMmuPIcc_usHxqJtNIE1W2_bX5k</string>
+
 </resources>

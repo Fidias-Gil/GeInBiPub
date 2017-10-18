@@ -68,8 +68,7 @@ public class AgregarBienFragment extends Fragment implements LocationListener {
 
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
-            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if(location!= null) {
                 tvLatitud.setText(getString(R.string.latitud_label) + location.getLatitude());
                 tvLongitud.setText(getString(R.string.longitud_label) + location.getLongitude());
