@@ -26,11 +26,4 @@
         app:fabSize="mini"
         app:srcCompat="@drawable/ic_add_white_24dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="prueba"
-        android:text="Button" />
-
 </FrameLayout>

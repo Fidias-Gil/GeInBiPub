@@ -135,18 +135,20 @@ public class AgregarBienFragment extends Fragment implements LocationListener {
         Log.d("GEINBIPUB", "AgregarBienFragment.guardar()");
         Bien b = null;
         try {
-            b = new Bien(Float.parseFloat(tvLatitud.getText().toString()),
-                    Float.parseFloat(tvLongitud.getText().toString()),
+            b = new Bien(Float.parseFloat(tvLatitud.getText().toString().replace(getString(R.string.latitud_label),"")),
+                    Float.parseFloat(tvLongitud.getText().toString().replace(getString(R.string.longitud_label),"")),
                     etTitulo.getText().toString(),
                     etDetalle.getText().toString());
         } catch (NumberFormatException e) {
+            Log.d("GEINBIPUB", "AgregarBienFragment.guardar().NumberFormatException");
             b = new Bien(Bien.COORD_NO_VALIDA,
                     Bien.COORD_NO_VALIDA,
                     etTitulo.getText().toString(),
                     etDetalle.getText().toString());
         }
         b.guardar(getActivity());
-        getActivity().finish();
+        Toast.makeText(getActivity(), getString(R.string.mensaje_incidencia_guardada), Toast.LENGTH_SHORT).show();
+        //getActivity().finish();
     }
 
     @Override

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GeInBiPub</string>
+    <string name="borrar_incidencia">Delete incidence</string>
+    <string name="detalle">Enter incidence description</string>
+    <string name="fragment_detalle_bien_sin_datos">Select a public good</string>
+    <string name="fragment_lista_bienes_sin_datos">Add information</string>
+    <string name="guardar">Save</string>
+    <string name="latitud_label">"Latitude: "</string>
+    <string name="longitud_label">"Longitude: "</string>
+    <string name="mensaje_incidencia_guardada">Incidence saved successfuly</string>
+    <string name="mensaje_no_permiso_GPS">If you do nott activate geolocalization permissions you can not record incidence locations</string>
+    <string name="operacion_cancelada">Canceled operation</string>
+    <string name="operacion_realizada">Completed operation</string>
+    <string name="pregunta_completar_operacion">Do you want to complete the operation?</string>
+    <string name="si">Yes</string>
+    <string name="titulo">Public good name</string>
+</resources>

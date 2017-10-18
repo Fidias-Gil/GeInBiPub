@@ -60,6 +60,16 @@ public class Bien {
         this.id = id;
     }
 
+    public Bien(int id, Context c){
+        DBBienH db = new DBBienH(c);
+        Bien b = db.obtener(id);
+        this.latitud = b.latitud;
+        this.longitud = b.longitud;
+        this.titulo = b.titulo;
+        this.detalle = b.detalle;
+        this.id = b.id;
+    }
+
     public float getLatitud() {
         return latitud;
     }
@@ -76,11 +86,19 @@ public class Bien {
         return detalle;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
     public void guardar(Context c) {
         DBBienH bdl = new DBBienH(c);
         bdl.guardar(this);
     }
-
+    public static void borrar(Bien b, Context c) {
+        Log.d("GEINBIPUB","Bien.borrar()");
+        DBBienH bdh = new DBBienH(c);
+        bdh.borrar(b);
+    }
     public  static ArrayList<Bien> listar(Context c) {
         Log.d("GEINBIPUB","Bien.listar()");
         DBBienH db = new DBBienH(c);
@@ -170,6 +188,36 @@ public class Bien {
             SQLiteDatabase db = this.getWritableDatabase();
             db.insert(TBL_BIENES, null,cv);
             db.close();
+        }
+
+        public void borrar(Bien b) {
+            Log.d("GEINBIPUB","Bien.DBBienH.borrar()");
+            SQLiteDatabase db = this.getWritableDatabase();
+            final String  WHERE = FldBienes.ID.campo + " = ?";
+            String[] args = new String[] {""+ b.getId()};
+            db.delete(TBL_BIENES,WHERE,args);
+            db.close();
+        }
+
+        public Bien obtener (int id) {
+            Log.d("GEINBIPUB", "Bien.DBBienH.obtener(" + id +")");
+            SQLiteDatabase db = this.getReadableDatabase();
+            String[] campos = new String[FldBienes.values().length];
+            for (FldBienes c: FldBienes.values()) {
+                campos[c.ordinal()] = c.campo;
+            }
+            String whereClause =  FldBienes.ID.campo+"=?";
+            String[] whereArgs = new String[] {""+id};
+            Log.d("GEINBIPUB", whereClause+ ": "+ whereArgs[0]);
+            Cursor cursor = db.query(TBL_BIENES, campos, whereClause, whereArgs,null,null,null);
+            if(cursor.moveToFirst()) {
+                return new Bien(cursor.getFloat(cursor.getColumnIndex(FldBienes.LATITUD.campo)),
+                        cursor.getFloat(cursor.getColumnIndex(FldBienes.LONGITUD.campo)),
+                        cursor.getString(cursor.getColumnIndex(FldBienes.TITULO.campo)),
+                        cursor.getString(cursor.getColumnIndex(FldBienes.DESCRIPCION.campo)));
+            }
+            Log.d("GEINBIPUB", "Bien.DBBienH.obtener(" + id +") va a retornar null");
+            return null;
         }
     }
 }

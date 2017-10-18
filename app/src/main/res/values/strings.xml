@@ -11,4 +11,11 @@
     <string name="latitud_label">Latitud: </string>
     <string name="longitud_label">Longitud: </string>
     <string name="mensaje_no_permiso_GPS">Si no activa los permisos de geolocalización no podrá registrar la ubicación de las incidencias</string>
+    <string name="mensaje_incidencia_guardada">Incidencia guardada exitosamente</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="pregunta_completar_operacion">¿Desea completar la operación?</string>
+    <string name="borrar_incidencia">Borrar Incidencia</string>
+    <string name="operacion_cancelada">Operacion cancelada</string>
+    <string name="operacion_realizada">Operación realizada</string>
 </resources>
